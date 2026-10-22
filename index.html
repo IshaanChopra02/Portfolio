@@ -1530,7 +1530,8 @@ kick();
 <!-- ===== Mobile layer: scroll petals + bottom nav + mobile polish ===== -->
 <style>
 /* scroll petals: a fixed layer above the page, below dialogs, never blocks touches */
-#sp{position:fixed;inset:0;width:100%;height:100%;z-index:44;pointer-events:none;display:block}
+#sp{display:none;position:fixed;inset:0;width:100%;height:100%;z-index:44;pointer-events:none}
+@media (max-width:760px){#sp{display:block}}
 
 /* bottom nav (phones only) */
 .bn{display:none}
@@ -1653,7 +1654,9 @@ kick();
   function wake(){ if(!raf){ last=performance.now(); raf=requestAnimationFrame(tick); } }
 
   var ticking=false;
+  var phone=matchMedia('(max-width:760px)');   // petals are phone-only
   function onScroll(){
+    if(!phone.matches){ P.length=0; lastY=window.scrollY; return; }
     var y=window.scrollY, d=Math.abs(y-lastY); lastY=y;
     acc+=d/(reduce?220:110);              // about one petal per 110px scrolled
     var n=Math.min(3,acc|0); acc-=n;
