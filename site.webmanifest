@@ -1,0 +1,13 @@
+{
+  "name": "Ishaan Chopra",
+  "short_name": "Ishaan",
+  "description": "Ishaan Chopra: data science developer and creative technologist.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#05060a",
+  "theme_color": "#05060a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
